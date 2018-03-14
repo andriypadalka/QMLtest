@@ -2,6 +2,7 @@
 #include <list>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 #include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
 #include <math.h>
