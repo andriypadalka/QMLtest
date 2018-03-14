@@ -3,9 +3,11 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+
+#include <thread>
 //#include "ArrayGuar.h"
 
-#include <time.h>       /* clock_t, clock, (check what returns clock()) CLOCKS_PER_SEC */
+#include <time.h>       /* clock_t, clock, (check what returns this clock() function) CLOCKS_PER_SEC */
 #include <math.h>
 
 using namespace std;
@@ -25,6 +27,16 @@ uint64_t rdtsc()
 }
 #endif //_WIN32
 
+struct ThData
+{
+   int * m_pAr;
+   int   m_nSize;	
+};
+
+void ThreadFunc(ThData * pThData)
+{
+   // 
+}
 
 int main()
 {
