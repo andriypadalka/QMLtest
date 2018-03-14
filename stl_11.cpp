@@ -3,10 +3,36 @@
 #include <vector>
 #include <algorithm>
 
+#include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
+#include <math.h>
+
 using namespace std;
+
+#ifdef _WIN32                //  Windows
+#include <intrin.h>
+uint64_t rdtsc()
+{
+    return __rdtsc();
+}
+#else                        //  Linux/GCC
+uint64_t rdtsc()
+{
+    unsigned int lo, hi;
+    __asm__ __volatile__("rdtsc" : "=a" (lo), "=d" (hi));
+    return ((uint64_t)hi << 32) | lo;
+}
+#endif //_WIN32
+
 
 int main()
 {
+    clock_t t = clock();
+    int nCount = 1000;
+    for(int i = 0; i < nCount; ++i)
+        cout<<'*';
+    cout<<endl;
+    clock_t t2 = clock();
+    cout<<t2<<" - "<<t<<" = "<<t2 - t<<" frequency = "<<CLOCKS_PER_SEC<<endl;
     {
         vector<int> vc;
         list<int>  lst;
