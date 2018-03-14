@@ -3,9 +3,9 @@
 #include <vector>
 #include <algorithm>
 #include <map>
-//#include "ArrayGuar.h"
+//#include "ArrayGuard.hpp"
 
-#include <time.h>       /* clock_t, clock, (check what returns clock()) CLOCKS_PER_SEC */
+#include <time.h>       /* clock_t, clock, (check what else returns clock()) CLOCKS_PER_SEC */
 #include <math.h>
 
 using namespace std;
