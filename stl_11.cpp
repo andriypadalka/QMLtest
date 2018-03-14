@@ -3,8 +3,9 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+//#include "ArrayGuar.h"
 
-#include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
+#include <time.h>       /* clock_t, clock, (check what returns clock()) CLOCKS_PER_SEC */
 #include <math.h>
 
 using namespace std;
@@ -27,12 +28,14 @@ uint64_t rdtsc()
 
 int main()
 {
+    uint64_t ui1 = rdtsc();
     clock_t t = clock();
     int nCount = 1000;
     for(int i = 0; i < nCount; ++i)
         cout<<'*';
     cout<<endl;
     clock_t t2 = clock();
+    uint64_t ui2 = rdtsc();
     cout<<t2<<" - "<<t<<" = "<<t2 - t<<" frequency = "<<CLOCKS_PER_SEC<<endl;
     {
         vector<int> vc;
